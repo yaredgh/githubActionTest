@@ -18,6 +18,7 @@ public class GithubActionDemoApplication {
     {
         Logger log = LoggerFactory.getLogger(GithubActionDemoApplication.class);
         log.info("Java app started");
+        System.out.println("Ok");
     }
 
     public String getStatus() {
