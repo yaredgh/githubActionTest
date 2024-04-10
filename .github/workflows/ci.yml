@@ -45,8 +45,9 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
+            context:
             push: true
-            tags: yaredgidey/app:latest
+            tags: yaredgidey/app:latest, yaredgidey/app:${{github.run_number}}
 #    - name: Build and Push Docker Image
 #      uses: mr-smithers-excellent/docker-build-push@v4
 #      with:
