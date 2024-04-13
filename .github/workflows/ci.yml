@@ -68,7 +68,10 @@ jobs:
           repository:  yaredgh/githubActionTest-deployment-
           ref: main
       - name: Get directory
-        run: ls
+        run: |
+          ls 
+          cd githubActionTest-deployment
+          ls
 
       # Update deployment YAML
       - name: Update deployment YAML
