@@ -80,7 +80,7 @@ jobs:
           #sed -i "s|image: old_image|image: yaredgidey/githubtest:${{github.run_number}}|g" githubActionTest-deployment/deployment.yaml
           git config user.email "github-actions@github.com"
           git config user.name "GitHub Actions"
-          git add deployment.yaml
+          git add .
           git commit -m "Update deployment.yaml with new image tag"
           git push origin main
 
