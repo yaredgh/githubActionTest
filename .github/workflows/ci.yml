@@ -79,7 +79,7 @@ jobs:
           git config user.name "yaredgh"
           git add githubActionTest-deployment/deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
-          git push origin main
+          git push
       - name: List directory contents
         run: ls -l githubActionTest-deployment
 
