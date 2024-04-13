@@ -73,7 +73,7 @@ jobs:
       - name: Update Deployment YAML
         run: |
           sed -i "s|image: old_image|image: yaredgidey/githubtest:${{ github.run_number }}|g" githubActionTest-deployment/deployment.yaml
-        working-directory: githubActionTest-deployment/deployment.yaml
+      
 
       - name: Commit and Push Changes
         run: |
