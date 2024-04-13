@@ -69,6 +69,9 @@ jobs:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: List directory contents
+        run: ls -l githubActionTest-deployment
+
       # Update deployment YAML
       - name: Update deployment YAML
         run: |
