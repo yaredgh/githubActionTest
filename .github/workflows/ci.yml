@@ -52,14 +52,14 @@ jobs:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # Push Docker image to Docker Hub
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          dockerfile: Dockerfile
-          push: true
-          tags: yaredgidey/githubtest:latest, yaredgidey/githubtest:${{github.run_number}}
+#      # Push Docker image to Docker Hub
+#      - name: Push to Docker Hub
+#        uses: docker/build-push-action@v2
+#        with:
+#          context: .
+#          dockerfile: Dockerfile
+#          push: true
+#          tags: yaredgidey/githubtest:latest, yaredgidey/githubtest:${{github.run_number}}
 
       # Clone deployment repository
       - name: Checkout deployment repository
@@ -69,18 +69,19 @@ jobs:
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: List directory contents
-        run: ls -l githubActionTest-deployment
+
 
       # Update deployment YAML
       - name: Update deployment YAML
         run: |
-          sed -i "s|image: old_image|image: githubActionTest-deployment/githubtest:${{github.run_number}}|g" githubActionTest-deployment/deployment.yaml
-          git config user.email "github-actions@github.com"
-          git config user.name "GitHub Actions"
+          sed -i "s|image: old_image|image: yaredgidey/githubtest:${{github.run_number}}|g" githubActionTest-deployment/deployment.yaml
+          git config user.email "yghidey@mum.edu"
+          git config user.name "yaredgh"
           git add deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
           git push origin main
+      - name: List directory contents
+        run: ls -l githubActionTest-deployment
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #       - name: Update dependency graph
