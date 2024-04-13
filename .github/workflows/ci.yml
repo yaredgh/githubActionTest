@@ -31,12 +31,12 @@ jobs:
       - name: Unit Test
         run: mvn -B test --file pom.xml
 
-      # Build with Maven
-      - name: Build with Maven
+      # Build.yaml with Maven
+      - name: Build.yaml with Maven
         run: mvn -B package --file pom.xml
 
-      # Build Docker image
-      - name: Build Docker Image
+      # Build.yaml Docker image
+      - name: Build.yaml Docker Image
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -89,13 +89,13 @@ jobs:
 #       - name: Set up Docker Buildx
 #         uses: docker/setup-buildx-action@v3
 
-#       - name: Build and push
+#       - name: Build.yaml and push
 #         uses: docker/build-push-action@v5
 #         with:
 #            context:
 #            push: true
 #            tags: yaredgidey/app:latest, yaredgidey/app:${{github.run_number}}
-#    - name: Build and Push Docker Image
+#    - name: Build.yaml and Push Docker Image
 #      uses: mr-smithers-excellent/docker-build-push@v4
 #      with:
 #          image: yaredgidey/githubtest
