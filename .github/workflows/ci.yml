@@ -70,16 +70,18 @@ jobs:
 
 
       # Update deployment YAML
-      - name: Update deployment YAML
+      - name: Update Deployment YAML
         run: |
-          sed -i "s|image: old_image|image: docker pull yaredgidey/githubtest:latest|g" githubActionTest-deployment/deployment.yaml
-          git config user.email "yghidey@mum.edu"
-          git config user.name "yaredgh"
-          git add githubActionTest-deployment/deployment.yaml
+          sed -i "s|image: old_image|image: yaredgidey/githubtest:${{ github.run_number }}|g" githubActionTest-deployment/deployment.yaml
+        working-directory: githubActionTest-deployment/deployment.yaml
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
-          git push
-      - name: List directory contents
-        run: ls -l githubActionTest-deployment
+          git push origin main
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #       - name: Update dependency graph
