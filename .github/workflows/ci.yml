@@ -67,7 +67,7 @@ jobs:
         with:
           repository:  yaredgh/githubActionTest-deployment-
           ref: main
-          token: ${{ secrets_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Get directory
         run: |
           ls 
