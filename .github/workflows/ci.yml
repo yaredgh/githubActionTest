@@ -74,10 +74,11 @@ jobs:
       # Update deployment YAML
       - name: Update deployment YAML
         run: |
-          sed -i "s|image: old_image|image: docker pull yaredgidey/githubtest:latest|g" githubActionTest-deployment/deployment.yaml
+          touch yared.txt
+          #sed -i "s|image: old_image|image: docker pull yaredgidey/githubtest:latest|g" githubActionTest-deployment/deployment.yaml
           git config user.email "yghidey@mum.edu"
           git config user.name "yaredgh"
-          git add githubActionTest-deployment/deployment.yaml
+          git add githubActionTest-deployment/yared.txt
           git commit -m "Update deployment.yaml with new image tag"
           git push
       - name: List directory contents
