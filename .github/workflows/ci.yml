@@ -76,7 +76,8 @@ jobs:
       # Update deployment YAML
       - name: Update deployment YAML
         run: |
-          sed -i "s|image: old_image|image: yaredgidey/githubtest:${{github.run_number}}|g" githubActionTest-deployment/deployment.yaml
+           touch yared.txt
+#          sed -i "s|image: old_image|image: yaredgidey/githubtest:${{github.run_number}}|g" githubActionTest-deployment/deployment.yaml
           git config user.email "github-actions@github.com"
           git config user.name "GitHub Actions"
           git add deployment.yaml
