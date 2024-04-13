@@ -12,6 +12,11 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+
 jobs:
   build:
 
@@ -66,6 +71,7 @@ jobs:
           repository:  yaredgh/githubActionTest-deployment-
           ref: main
           token: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Display Deployment YAML Before Update
         run: cat githubActionTest-deployment/deployment.yaml
