@@ -81,7 +81,7 @@ jobs:
       - name: Display Deployment YAML After Update
         run: cat githubActionTest-deployment/deployment.yaml
 
-      - uses: actions/checkout@v3
+      - name: Commit and Push Changes
         run: |
           git config --global user.email "github-actions[bot]"
           git config --global user.name "github-actions@github.com"
