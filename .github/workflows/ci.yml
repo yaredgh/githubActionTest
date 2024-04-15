@@ -83,6 +83,11 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
+          echo "GitHub Token: ${{ secrets.GH_TOKEN }}"
+          echo "GitHub Repository Owner: ${{ github.repository_owner }}"
+          echo "GitHub Repository Name: ${{ github.event.repository.name }}"
+          echo "GitHub Actor (User/Workflow): ${{ github.actor }}"
+          echo "Current Branch: ${{ github.ref }}"
           git config --global user.email "yghidey@mum.edu"
           git config --global user.name "yaredgh"
           git add githubActionTest-deployment/deployment.yaml
