@@ -86,11 +86,11 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-         # git config --global user.email "yghidey@mum.edu"
-         # git config --global user.name "yaredgh"
+          git config --global user.email "yghidey@mum.edu"
+          git config --global user.name "yaredgh"
           git add githubActionTest-deployment/deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
-          git config --local credentail.helper ""
+          git config --local credential.helper ""
           git push origin main
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
