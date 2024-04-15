@@ -9,13 +9,10 @@
 name: Java CI with Maven and Deployment
 
 on:
-  push:
+#  push:
+#    branches: [ "main" ]
+  pull_request:
     branches: [ "main" ]
-
-permissions:
-  pull-requests: write
-  issues: write
-  repository-projects: write
 
 jobs:
   build:
@@ -86,11 +83,10 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.email "yghidey@mum.edu"
-          git config --global user.name "yaredgh"
+          git config --global user.email "github-actions"
+          git config --global user.name "github-actions@github.com"
           git add githubActionTest-deployment/deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
-          git config --local credential.helper ""
           git push origin main
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
