@@ -69,7 +69,7 @@ jobs:
         with:
           repository:  yaredgh/githubActionTest-deployment-
           ref: main
-          token: ${{ GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
 
       - name: Display Deployment YAML Before Update
