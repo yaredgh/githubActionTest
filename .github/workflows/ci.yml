@@ -13,6 +13,14 @@ on:
     branches: [ "main" ]
 
 jobs:
+  update-version:
+    if: >
+      github.event.review.state == 'approved' && 
+          github.event.pull_request.state == 'open'
+    runs-on: windows-latest
+    permissions:
+      contents: write
+
   build:
 
     runs-on: ubuntu-latest
