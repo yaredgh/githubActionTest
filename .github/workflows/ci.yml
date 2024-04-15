@@ -83,6 +83,7 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
+          git config --unset-all http.https://github.com/.extraheader
           git config --global user.email "yghidey@mum.edu"
           git config --global user.name "yaredgh"
           git add githubActionTest-deployment/deployment.yaml
