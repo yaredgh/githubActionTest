@@ -81,7 +81,7 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.email "github-actions"
+          git config --global user.email "github-actions[bot]"
           git config --global user.name "github-actions@github.com"
           git add githubActionTest-deployment/deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
