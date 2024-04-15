@@ -87,7 +87,7 @@ jobs:
           git config --global user.name "yaredgh"
           git add githubActionTest-deployment/deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
-          git push https://$yaredgh:${{ secrets.GH_TOKEN }}/$yaredgh/$githubActionTest-deployment-.git
+          git push https://yaredgh:${{ secrets.GH_TOKEN }}@github.com/yaredgh/githubActionTest-deployment-.git
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #       - name: Update dependency graph
