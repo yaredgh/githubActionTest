@@ -90,7 +90,7 @@ jobs:
           git config --global user.name "yaredgh"
           git add githubActionTest-deployment/deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
-          git config --unset-all http.https://github.com/.extraheader
+          git config --local credentail.helper ""
           git push origin main
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
