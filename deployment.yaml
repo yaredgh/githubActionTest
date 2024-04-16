@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: githubActionTest-deployment
+  labels:
+    app: githubActionTest
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: githubActionTest
+  template:
+    metadata:
+      labels:
+        app: githubActionTest
+    spec:
+      containers:
+        - name: githubActionTest-container
+          image: yaredgidey/githubtest:36
+          ports:
+            - containerPort: 8080
