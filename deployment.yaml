@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: githubActionTest-container
-          image: yaredgidey/githubtest:36
+          image: ***/githubtest:124
           ports:
             - containerPort: 8080
