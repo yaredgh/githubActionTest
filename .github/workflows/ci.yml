@@ -87,7 +87,7 @@ jobs:
         run: |
           git config --global user.email "yghidey@mum.edu"
           git config --global user.name "yaredgh"
-          git add githubActionTest/deployment.yaml
+          git add deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
 #          git push https://yaredgh:${{ secrets.GH_TOKEN }}@github.com/yaredgh/githubActionTest-deployment-.git
       - name: Push changes to remote repository
