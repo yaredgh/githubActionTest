@@ -67,31 +67,31 @@ jobs:
       - name: Checkout deployment repository
         uses: actions/checkout@v3
         with:
-          repository:  yaredgh/githubActionTest-deployment-
+          repository:  yaredgh/githubActionTest
           ref: main
 
 
 
       - name: Display Deployment YAML Before Update
-        run: cat githubActionTest-deployment/deployment.yaml
+        run: cat githubActionTest/deployment.yaml
 
       # Update deployment YAML
       - name: Update Deployment YAML
         run: |
-          sed -i "s|image: .*|image: ***/githubtest:85|g" githubActionTest-deployment/deployment.yaml
+          sed -i "s|image: .*|image: ***/githubtest:${{github.run_number}}|g" githubActionTest/deployment.yaml
 
       - name: Display Deployment YAML After Update
-        run: cat githubActionTest-deployment/deployment.yaml
+        run: cat githubActionTest/deployment.yaml
 
       - name: Commit and Push Changes
         run: |
           git config --global user.email "yghidey@mum.edu"
           git config --global user.name "yaredgh"
-          git add githubActionTest-deployment/deployment.yaml
+          git add githubActionTest/deployment.yaml
           git commit -m "Update deployment.yaml with new image tag"
 #          git push https://yaredgh:${{ secrets.GH_TOKEN }}@github.com/yaredgh/githubActionTest-deployment-.git
       - name: Push changes to remote repository
-        run: git push https://github.com/yaredgh/githubActionTest-deployment-.git
+        run: git push https://github.com/yaredgh/githubActionTest-.git
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #       - name: Update dependency graph
