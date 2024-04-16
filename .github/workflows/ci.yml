@@ -65,21 +65,21 @@ jobs:
       - name: Checkout deployment repository
         uses: actions/checkout@v3
         with:
-          repository:  yaredgh/githubActionTest
+          repository:  yaredgh/githubActionTest-deployment-
           ref: main
 
 
 
       - name: Display Deployment YAML Before Update
-        run: cat deployment.yaml
+        run: cat githubActionTest-deployment-/deployment.yaml
 
       # Update deployment YAML
       - name: Update Deployment YAML
         run: |
-          sed -i "s|image: .*|image: ***/githubtest:${{github.run_number}}|g" deployment.yaml
+          sed -i "s|image: .*|image: ***/githubtest:${{github.run_number}}|g" githubActionTest-deployment-/deployment.yaml
 
       - name: Display Deployment YAML After Update
-        run: cat deployment.yaml
+        run: cat githubActionTest-deployment-/deployment.yaml
 
       - name: Commit and Push Changes
         run: |
