@@ -78,7 +78,7 @@ jobs:
       # Update deployment YAML
       - name: Update Deployment YAML
         run: |
-          sed -i "s|image: .*|image: ***/githubtest:${{github.run_number}}|g" githubActionTest/deployment.yaml
+          sed -i "s|image: .*|image: ***/githubtest:${{github.run_number}}|g" deployment.yaml
 
       - name: Display Deployment YAML After Update
         run: cat deployment.yaml
