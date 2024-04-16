@@ -8,11 +8,9 @@
 
 name: Java CI with Maven and Deployment
 
-on:
-  pull_request:
-    branches: [ "main" ]
+on: push
 permissions:
-  contents: write
+    contents: write
 
 jobs:
   build:
