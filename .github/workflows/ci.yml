@@ -11,6 +11,8 @@ name: Java CI with Maven and Deployment
 on:
   pull_request:
     branches: [ "main" ]
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -88,6 +90,7 @@ jobs:
            git config --global user.name 'yaredgh'
            git config --global user.email 'yaredgh@users.noreply.github.com'
            git commit -am "Automated report"
+          git remote set-url --push origin https://yaredgh:$GH_TOKEN@github.com/githubActionTest
            git push
 
 
