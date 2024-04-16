@@ -91,7 +91,7 @@ jobs:
           git commit -m "Update deployment.yaml with new image tag"
 #          git push https://yaredgh:${{ secrets.GH_TOKEN }}@github.com/yaredgh/githubActionTest-deployment-.git
       - name: Push changes to remote repository
-        run: git push https://github.com/yaredgh/githubActionTest-.git
+        run: git push https://github.com/yaredgh/githubActionTest.git
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #       - name: Update dependency graph
