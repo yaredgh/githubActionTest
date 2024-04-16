@@ -85,13 +85,13 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          git config --global user.email "yghidey@mum.edu"
-          git config --global user.name "yaredgh"
-          git add deployment.yaml
-          git commit -m "Update deployment.yaml with new image tag"
-#          git push https://yaredgh:${{ secrets.GH_TOKEN }}@github.com/yaredgh/githubActionTest-deployment-.git
-      - name: Push changes to remote repository
-        run: git push https://github.com/yaredgh/githubActionTest.git
+           git config --global user.name 'yaredgh'
+           git config --global user.email 'yaredgh@users.noreply.github.com'
+           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/$GITHUB_REPOSITORY
+           git checkout "${GITHUB_REF:11}"
+           git commit -am "Automated report"
+           git push
+
 
 #      # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
 #       - name: Update dependency graph
